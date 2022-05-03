@@ -10,7 +10,7 @@ function MovieCard() {
         count: 2,
         score: 4.5
     };
-debugger
+    
     return (
         <div>
             <img className="dsmovie-movie-card-image" src={movie.image} alt={movie.title} />
