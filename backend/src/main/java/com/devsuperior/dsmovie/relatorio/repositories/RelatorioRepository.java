@@ -1,4 +1,4 @@
-package com.devsuperior.dsmovie.repositories;
+package com.devsuperior.dsmovie.relatorio.repositories;
 
 import java.util.List;
 
@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.devsuperior.dsmovie.entities.Movie;
 
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, Long> {
-	
+public interface RelatorioRepository extends JpaRepository<Movie, Long> {
+
+	@Query(nativeQuery = true, value = "SELECT * FROM TB_MOVIE limit :qtd")
+	public List<Movie> limitFilmes(Integer qtd);
 }
