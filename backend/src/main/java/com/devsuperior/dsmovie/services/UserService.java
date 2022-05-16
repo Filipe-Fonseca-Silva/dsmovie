@@ -37,6 +37,8 @@ public class UserService {
 		User entity = new User();
 		entity.setId(dto.getId());
 		entity.setEmail(dto.getEmail());
+		entity.setName(dto.getName());
+		entity.setCpf(dto.getCpf());
 		entity = repository.save(entity);
 		return new UserDTO(entity);
 	}
@@ -48,6 +50,8 @@ public class UserService {
 			User entity = obj.orElse(null);
 			entity.setId(dto.getId());
 			entity.setEmail(dto.getEmail());
+			entity.setName(dto.getName());
+			entity.setCpf(dto.getCpf());
 			entity = repository.save(entity);
 			return new UserDTO(entity);
 		}

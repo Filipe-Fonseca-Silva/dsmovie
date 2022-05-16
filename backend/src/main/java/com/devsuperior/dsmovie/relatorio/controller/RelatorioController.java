@@ -112,9 +112,17 @@ public class RelatorioController {
 			@RequestParam(name = "titulo", defaultValue = "") String titulo, 
 			@RequestParam(name = "autor", defaultValue = "") String autor,
 			@RequestParam(name = "showData", defaultValue = "true") Boolean showData,
+			@RequestParam(name = "limit", defaultValue = "0") Integer limit,
 			@RequestParam(name = "data", defaultValue = "") Date data, HttpServletResponse response) {
 		
-		List<UserDTO> list = userRepository.findAll().stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+		List<UserDTO> list = null;
+		
+		if(limit == 0) {
+			list = userRepository.findAll().stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+		}
+		else {
+			list = userRepository.buscaLimite(limit).stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
+		}
 		
 		try {
 			
@@ -134,7 +142,7 @@ public class RelatorioController {
 		    relatorio.gerarRelatorioCompilado(list, response, parametros, nomeRelatorio, folder, empresa, false);		    	
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			//
 		}
 		
 		return null;

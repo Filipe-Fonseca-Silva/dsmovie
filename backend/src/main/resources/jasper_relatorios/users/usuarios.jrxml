@@ -19,6 +19,8 @@
 		<property name="com.jaspersoft.studio.field.tree.path" value="tb_movie"/>
 	</field>
 	<field name="email" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="cpf" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -110,7 +112,7 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="21" splitType="Stretch">
+		<band height="22" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="80" height="20" uuid="01cb2761-bac3-4b6f-9bcc-5dd0e8c5177e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e941c3d5-c2e8-45a6-a8b3-8253a3ecaade"/>
@@ -121,7 +123,7 @@
 				<text><![CDATA[Id do usuário]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="80" y="0" width="475" height="20" uuid="3977d108-d738-4454-883e-73601d48f0c5">
+				<reportElement x="80" y="0" width="200" height="20" uuid="3977d108-d738-4454-883e-73601d48f0c5">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23981bf0-55e3-4e3b-9cbe-bb4b4042aaba"/>
 				</reportElement>
 				<textElement>
@@ -129,10 +131,28 @@
 				</textElement>
 				<text><![CDATA[Email do usuário]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="200" height="21" uuid="3c1d05fb-b30a-49fa-9f8e-955a6d6db442">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f153858-5251-47a5-beaa-d9710e749d62"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome do usuário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="1" width="80" height="21" uuid="fcca9c85-55ba-4e9d-949f-38dd01419bc8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b9b8d1fa-c94c-4cd4-b279-b279a7ad4ea9"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
+		<band height="46" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="80" height="30" uuid="33b98ff7-c893-4bcb-9f70-cbe569a45f1d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e941c3d5-c2e8-45a6-a8b3-8253a3ecaade"/>
@@ -140,10 +160,22 @@
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="80" y="0" width="475" height="30" uuid="d4c598ce-e51a-471a-a3af-726e78c11e5c">
+				<reportElement x="80" y="0" width="200" height="30" uuid="d4c598ce-e51a-471a-a3af-726e78c11e5c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="23981bf0-55e3-4e3b-9cbe-bb4b4042aaba"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="200" height="30" uuid="9e8e866f-79fb-4935-bb40-cc0d7e114329">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f153858-5251-47a5-beaa-d9710e749d62"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="94" height="30" uuid="1506540a-c76a-41f9-bbfd-2b52bbd35463">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b9b8d1fa-c94c-4cd4-b279-b279a7ad4ea9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
