@@ -13,4 +13,8 @@ public interface RelatorioRepository extends JpaRepository<Movie, Long> {
 
 	@Query(nativeQuery = true, value = "SELECT * FROM TB_MOVIE limit :qtd")
 	public List<Movie> limitFilmes(Integer qtd);
+	
+	@Query(nativeQuery = true, value = "SELECT * FROM tb_movie "
+			+ "WHERE SCORE > :pontuacao ")
+	public List<Movie> pontuacaoFilmes(Integer pontuacao);
 }

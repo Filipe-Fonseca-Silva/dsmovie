@@ -56,19 +56,23 @@ public class RelatorioController {
 			@RequestParam(name = "showGrupo", defaultValue = "false") Boolean showGrupo, 
 			@RequestParam(name = "grupoPage", defaultValue = "false") Boolean grupoPage, 
 			@RequestParam(name = "filmeId", defaultValue = "0") Long filmeId,
+			@RequestParam(name = "pontuacao", defaultValue = "0") Integer pontuacao,
 			@RequestParam(name = "limit", defaultValue = "0") Integer limit, HttpServletResponse response) throws IOException{
 		
 		/// :: Carregar lista com dados do relatorio.
 		List<MovieDTO> list = null;
 		
-		if(filmeId == 0 && limit == 0) {
+		if(filmeId == 0 && limit == 0 && pontuacao == 0) {
 			list = repository.findAll().stream().map(x -> new MovieDTO(x)).collect(Collectors.toList());
 		}
-		else if(filmeId > 0 && limit == 0) {
+		else if(filmeId > 0 && limit == 0 && pontuacao == 0) {
 			list = repository.findById(filmeId).stream().map(x -> new MovieDTO(x)).collect(Collectors.toList());
 		}
-		else if(filmeId == 0 && limit > 0) {
+		else if(filmeId == 0 && limit > 0 && pontuacao == 0) {
 			list = repository.limitFilmes(limit).stream().map(x -> new MovieDTO(x)).collect(Collectors.toList());
+		}
+		else if(filmeId == 0 && limit == 0 && pontuacao > 0 && pontuacao <= 5) {
+			list = repository.pontuacaoFilmes(pontuacao).stream().map(x -> new MovieDTO(x)).collect(Collectors.toList());
 		}
 
 		try {		

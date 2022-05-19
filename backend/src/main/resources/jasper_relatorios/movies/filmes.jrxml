@@ -12,7 +12,8 @@
 	<parameter name="showData" class="java.lang.Boolean"/>
 	<parameter name="autor" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[]]>
+		<![CDATA[
+]]>
 	</queryString>
 	<field name="id" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.name" value="id"/>
@@ -52,7 +53,7 @@
 				<text><![CDATA[Relatórios de ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="330" y="0" width="230" height="30" uuid="c0b8893b-0bca-47e2-b021-90e928508f4f"/>
+				<reportElement x="320" y="0" width="230" height="30" uuid="c0b8893b-0bca-47e2-b021-90e928508f4f"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="12"/>
 				</textElement>

@@ -11,6 +11,7 @@ type FormData = {
     filmeId: number;
     limit: number;
     showData: boolean;
+    pontuacao: number;
 }
 
 const RelatoriosFilmes = () => {
@@ -32,7 +33,7 @@ const RelatoriosFilmes = () => {
         let base;
         if (formData.data.indexOf('/') > -1) {
             base = formData.data.split('/');
-            formData.data = base[2] + '/' + base[1] + '/' + base[0];
+            formData.data = base[2] + '-' + base[1] + '-' + base[0];
 debugger
             
         }
@@ -42,9 +43,9 @@ debugger
             debugger
         }
 
-        /*let url = `http://localhost:8080/relatorio/movies?nomeRelatorio=${formData.nomeRelatorio}&nomeEmpresa=${formData.nomeEmpresa}&cnpj=${formData.cnpj}&email=${formData.email}&titulo=${formData.titulo}&autor=${formData.autor}&data=${formData.data}&filmeId=${formData.filmeId}&limit=${formData.limit}`
+        let url = `http://localhost:8080/relatorio/movies?nomeRelatorio=${formData.nomeRelatorio}&nomeEmpresa=${formData.nomeEmpresa}&cnpj=${formData.cnpj}&email=${formData.email}&titulo=${formData.titulo}&autor=${formData.autor}&data=${formData.data}&filmeId=${formData.filmeId}&limit=${formData.limit}&pontuacao=${formData.pontuacao}`
     
-        window.open(url, "_blank");*/
+        window.open(url, "_blank");
     }
 
     return (
@@ -88,6 +89,10 @@ debugger
                     <div className="col-md-3">
                       <label>Limit</label>
                         <input type="text" className="form-control" name="limit" value={formData && formData.limit} onChange={handleChange}/>
+                    </div>
+                    <div className="col-md-3">
+                        <label>Pontuação</label>
+                        <input type="text" className="form-control" name="pontuacao" value={formData && formData.pontuacao} onChange={handleChange} />
                     </div>
                     <div style={{marginTop:"20px"}}>
                         <button className="btn btn-primary" type="submit" style={{fontWeight:"900"}}>Abrir Relatório</button>
