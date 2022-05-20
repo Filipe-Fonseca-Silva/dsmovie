@@ -34,13 +34,10 @@ const RelatoriosFilmes = () => {
         if (formData.data.indexOf('/') > -1) {
             base = formData.data.split('/');
             formData.data = base[2] + '-' + base[1] + '-' + base[0];
-debugger
-            
         }
         else if (formData.data.indexOf('-') > -1) {
             base = formData.data.split('-');
             formData.data = base[2] + '-' + base[1] + '-' + base[0];
-            debugger
         }
 
         let url = `http://localhost:8080/relatorio/movies?nomeRelatorio=${formData.nomeRelatorio}&nomeEmpresa=${formData.nomeEmpresa}&cnpj=${formData.cnpj}&email=${formData.email}&titulo=${formData.titulo}&autor=${formData.autor}&data=${formData.data}&filmeId=${formData.filmeId}&limit=${formData.limit}&pontuacao=${formData.pontuacao}`

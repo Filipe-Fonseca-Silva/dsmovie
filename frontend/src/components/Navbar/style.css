@@ -27,3 +27,16 @@ header {
     margin: 0 0 0 10px;
     font-size: 12px;
 }
+
+.dropDown-navbar {
+    border: 2px solid white !important;
+    background: #4D41C0 !important;
+    color: white !important;
+    border-radius: 3px;
+}
+
+.dropDown-navbar:hover {
+    border: 2px solid white !important;
+    background: #fff !important;
+    color: #4D41C0 !important;
+}
