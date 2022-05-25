@@ -35,7 +35,7 @@ public class UserService {
 	@Transactional
 	public UserDTO insert(UserDTO dto) {
 		User entity = new User();
-		entity.setId(dto.getId());
+
 		entity.setEmail(dto.getEmail());
 		entity.setName(dto.getName());
 		entity.setCpf(dto.getCpf());
